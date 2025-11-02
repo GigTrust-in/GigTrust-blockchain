@@ -1,0 +1,440 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "gigId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "worker",
+						"type": "address"
+					}
+				],
+				"name": "GigAccepted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "gigId",
+						"type": "uint256"
+					}
+				],
+				"name": "GigCompleted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "gigId",
+						"type": "uint256"
+					}
+				],
+				"name": "GigConfirmed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "gigId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "contractor",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "fee",
+						"type": "uint256"
+					}
+				],
+				"name": "GigCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "gigId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "worker",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentSent",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "rater",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "ratedUser",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "rating",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newReputationScore",
+						"type": "uint256"
+					}
+				],
+				"name": "UserRated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "userAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum GigTrust.UserRole",
+						"name": "role",
+						"type": "uint8"
+					}
+				],
+				"name": "UserRegistered",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_gigId",
+						"type": "uint256"
+					}
+				],
+				"name": "acceptGig",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_gigId",
+						"type": "uint256"
+					}
+				],
+				"name": "completeGig",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_gigId",
+						"type": "uint256"
+					}
+				],
+				"name": "confirmGigAndPay",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_description",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_fee",
+						"type": "uint256"
+					}
+				],
+				"name": "createGig",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_gigId",
+						"type": "uint256"
+					}
+				],
+				"name": "getGigStatus",
+				"outputs": [
+					{
+						"internalType": "enum GigTrust.GigStatus",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "getUserReputation",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "gigs",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "contractor",
+						"type": "address"
+					},
+					{
+						"internalType": "address payable",
+						"name": "worker",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "fee",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum GigTrust.GigStatus",
+						"name": "status",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bool",
+						"name": "contractorRatedWorker",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nextGigId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_gigId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_userToRate",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_rating",
+						"type": "uint256"
+					}
+				],
+				"name": "rateUser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "enum GigTrust.UserRole",
+						"name": "_role",
+						"type": "uint8"
+					}
+				],
+				"name": "registerUser",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "users",
+				"outputs": [
+					{
+						"internalType": "enum GigTrust.UserRole",
+						"name": "role",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "totalRating",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "reviewCount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "A smart contract to manage a trust-based gig economy system using escrow for payment and a one-sided reputation system (Contractor rates Worker). * This contract is the definitive, immutable source of truth for all gig states and handles all ETH transactions securely on the blockchain.",
+			"kind": "dev",
+			"methods": {
+				"acceptGig(uint256)": {
+					"details": "Worker accepts an open gig."
+				},
+				"completeGig(uint256)": {
+					"details": "Worker marks the gig as completed."
+				},
+				"confirmGigAndPay(uint256)": {
+					"details": "Contractor confirms the gig is complete and pays the worker (releases escrow). This is the core money transfer logic."
+				},
+				"createGig(string,uint256)": {
+					"details": "Contractor creates a new gig and sends the payment to the contract (escrow). The `payable` keyword is essential for receiving the ETH."
+				},
+				"getGigStatus(uint256)": {
+					"details": "Retrieves the current status of a gig."
+				},
+				"getUserReputation(address)": {
+					"details": "Calculates the average reputation score for a user."
+				},
+				"rateUser(uint256,address,uint256)": {
+					"details": "Allows only the Contractor to rate the Worker after a gig is paid."
+				},
+				"registerUser(uint8)": {
+					"details": "Allows a user to register as either a Contractor or a Worker. This function is typically called by the frontend or an authentication service."
+				}
+			},
+			"title": "GigTrust",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"gigtrust.sol": "GigTrust"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"gigtrust.sol": {
+			"keccak256": "0x9474a49e3016a3355a7fbb6349ed13678476764e607bb4cf4ec57b7fc2b3d29d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2e35fcf0455fb99c94d4cf96089c78947952dfae6df575c4885d16e7a2c2c427",
+				"dweb:/ipfs/QmQAdisZXWn7Vf1K4f3twr7H3mhyEZrDw47HHBS7PhzWMo"
+			]
+		}
+	},
+	"version": 1
+}
